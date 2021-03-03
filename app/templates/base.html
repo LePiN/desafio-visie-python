@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISIE - Python test</title>
+</head>
+<body>
+    <table class="person_table">
+        <th colspan="4"><h3>Cadastro de Pessoas</h3></th>  
+        <tr>
+            <th>Nome</th>
+            <th>Data de admissão</th>
+            <th>Excluir?</th>
+        </tr>
+        {% for person in person_data %}
+        <tr>
+            <td>{{person.first_name}}</td>
+            <td>{{person.format_admission_date()}}</td>
+            <td>
+                <form action="{{ url_for('delete') }}" method=post >
+                    <input type=hidden value="{{ person.id_person }}"name=id_person />
+                    <input class="button" type=submit value="Excluir" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="container">
+        <h2>Cadastrar?</h2>
+        <form action="/" method="POST">
+            <label>Nome: <input type="text" name="nome" required></label> </br>      
+            <label>RG: <input type="number" name="rg" min="0" max="99999999999"></label> </br> 
+            <label>CPF: <input type="number" name="cpf" min="0" max="99999999999999"></label> </br> 
+            <label>Data de Nascimento: <input type="date" name="data_nascimento" required></label> </br> 
+            <label>Data de Admissão: <input type="date" name="data_admissao" required></label> </br> 
+            <input class="button" type="submit" value="Salvar">        
+        </form>
+    </div>        
+</body>
+</html>

@@ -1,0 +1,65 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+div.container {
+    border-width: medium;
+    border-style: solid;
+    border-color: #00004d;
+    margin-left: auto;    
+    margin-right: auto;
+    text-align: center;
+    width: 500px; 
+}
+
+table.person_table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+th {
+    background-color: #3385ff;
+    color: white;
+}
+
+input.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+
+    div.container {
+        margin-left: 15px;    
+        text-align: left;
+        width: 500px; 
+    }
+    
+    table.person_table {
+        margin-left: 15px;
+        width: 500px;
+    }
+    
+    th, td, tr {
+        text-align: left;
+    }
+}
